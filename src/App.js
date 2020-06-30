@@ -140,67 +140,69 @@ class App extends React.Component {
     const { tolStandard, tolType, tolClass, checkValue, result } = this.state;
 
     return (
-      <Segment
-        raised
-        padded="very"
-        textAlign="center"
-        style={{ margin: "2em" }}
-      >
-        <Header as="h1" icon>
-          <Icon name="sitemap" />
-          Tolerance Standards
-          <Header.Subheader>
-            Please select a tolerance standard to start.
-          </Header.Subheader>
-        </Header>
-        <Container fluid>
-          <SelectMe
-            name={tolStandard.name}
-            label={tolStandard.label}
-            standard={tolStandard.options}
-            handleChanges={this.handleChanges}
-            show={tolStandard.show}
-            value={tolStandard.value}
-          />
-          <SelectMe
-            name={tolType.name}
-            label={tolType.label}
-            standard={tolType.options}
-            handleChanges={this.handleChanges}
-            show={tolType.show}
-            value={tolType.value}
-          />
-          <SelectMe
-            name={tolClass.name}
-            label={tolClass.label}
-            standard={tolClass.options}
-            handleChanges={this.handleChanges}
-            show={tolClass.show}
-            value={tolClass.value}
-          />
-          <Input
-            fluid
-            type="number"
-            name="checkValue"
-            disabled={tolClass.value === "" || !tolClass.show}
-            style={{ marginBottom: "1em" }}
-            value={checkValue || ""}
-            onChange={this.handleValueChange}
-          />
-        </Container>
-        <Button
-          style={{ marginBottom: "1em" }}
-          disabled={tolClass.value === "" || !tolClass.show}
-          onClick={this.handleResult}
+      <Container text fluid>
+        <Segment
+          raised
+          padded="very"
+          textAlign="center"
+          style={{ margin: "2em" }}
         >
-          Calculate
-        </Button>
-        {result && result !== "Value must be between 0,5 and 4000" ? (
-          <Message>{`${checkValue}±${result}`}</Message>
-        ) : result ? (
-          <Message>{result}</Message>
-        ) : null}
-      </Segment>
+          <Header as="h1" icon>
+            <Icon name="sitemap" />
+            Tolerance Standards
+            <Header.Subheader>
+              Please select a tolerance standard to start.
+            </Header.Subheader>
+          </Header>
+          <Container fluid>
+            <SelectMe
+              name={tolStandard.name}
+              label={tolStandard.label}
+              standard={tolStandard.options}
+              handleChanges={this.handleChanges}
+              show={tolStandard.show}
+              value={tolStandard.value}
+            />
+            <SelectMe
+              name={tolType.name}
+              label={tolType.label}
+              standard={tolType.options}
+              handleChanges={this.handleChanges}
+              show={tolType.show}
+              value={tolType.value}
+            />
+            <SelectMe
+              name={tolClass.name}
+              label={tolClass.label}
+              standard={tolClass.options}
+              handleChanges={this.handleChanges}
+              show={tolClass.show}
+              value={tolClass.value}
+            />
+            <Input
+              fluid
+              type="number"
+              name="checkValue"
+              disabled={tolClass.value === "" || !tolClass.show}
+              style={{ marginBottom: "1em" }}
+              value={checkValue || ""}
+              onChange={this.handleValueChange}
+            />
+          </Container>
+          {result && result !== "Value must be between 0,5 and 4000" ? (
+            <Message>{`${checkValue}±${result}`}</Message>
+          ) : result ? (
+            <Message>{result}</Message>
+          ) : null}
+          <Button
+            style={{ marginBottom: "1em" }}
+            disabled={tolClass.value === "" || !tolClass.show}
+            onClick={this.handleResult}
+          >
+            Calculate
+          </Button>
+        </Segment>
+      </Container>
     );
   }
 }
