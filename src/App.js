@@ -56,6 +56,7 @@ class App extends React.Component {
           show: false,
         },
         result: "",
+        checkValue: null,
       }));
     }
 
@@ -67,6 +68,7 @@ class App extends React.Component {
           show: true,
         },
         result: "",
+        checkValue: null,
       }));
     }
 
@@ -79,6 +81,7 @@ class App extends React.Component {
           show: false,
         },
         result: "",
+        checkValue: null,
       }));
     }
 
@@ -90,6 +93,7 @@ class App extends React.Component {
           show: true,
         },
         result: "",
+        checkValue: null,
       }));
     }
 
@@ -97,6 +101,7 @@ class App extends React.Component {
       this.setState((state) => ({
         ...state,
         result: "",
+        checkValue: null,
       }));
     }
   }

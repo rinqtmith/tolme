@@ -25,10 +25,10 @@ export const tolType = [
 ];
 
 export const tolClass = [
-  { key: 1, text: "Fine", value: "f" },
-  { key: 2, text: "Medium", value: "m" },
-  { key: 3, text: "Coarse", value: "c" },
-  { key: 4, text: "Very Coarse", value: "v" },
+  { key: 1, text: "Fine (f)", value: "f" },
+  { key: 2, text: "Medium (m)", value: "m" },
+  { key: 3, text: "Coarse (c)", value: "c" },
+  { key: 4, text: "Very Coarse (v)", value: "v" },
 ];
 
 const tolValues = {
