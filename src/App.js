@@ -114,6 +114,8 @@ class App extends React.Component {
         ...state[name],
         value: value,
       },
+      result: "",
+      checkValue: null,
     }));
   };
 
