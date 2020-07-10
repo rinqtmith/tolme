@@ -197,7 +197,11 @@ class App extends React.Component {
             />
           </Container>
           {result && result !== "Value must be between 0,5 and 4000" ? (
-            <Message>{`${checkValue}±${result}`}</Message>
+            tolType.value !== "angular" ? (
+              <Message>{`${checkValue}±${result}`}</Message>
+            ) : (
+              <Message>{`±${result}`}</Message>
+            )
           ) : result ? (
             <Message>{result}</Message>
           ) : null}
