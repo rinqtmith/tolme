@@ -6,12 +6,12 @@ import {
   Icon,
   Input,
   Button,
-  Message,
 } from 'semantic-ui-react';
 
 import { tolStandard, tolType, tolClass, calcTol } from './utils/standards';
 
-import SelectMe from './components/select.component';
+import SelectMe from './components/Select/select.component';
+import ResultComponent from './components/Result/result.component';
 
 const App = () => {
   const [tolStandardState, setTolStandardState] = useState({
@@ -183,14 +183,12 @@ const App = () => {
             onChange={handleValueChange}
           />
         </Container>
-        {result && result !== 'Value must be between 0,5 and 4000' ? (
-          tolType.value !== 'angular' ? (
-            <Message>{`${checkValue}±${result}`}</Message>
-          ) : (
-            <Message>{`±${result}`}</Message>
-          )
-        ) : result ? (
-          <Message>{result}</Message>
+        {result ? (
+          <ResultComponent
+            result={result}
+            checkValue={checkValue}
+            value={tolTypeState.value}
+          />
         ) : null}
         <Button
           style={{ marginBottom: '1em' }}

@@ -9,7 +9,7 @@ TODO (App):
     ✔ Add comments @low @done(20-08-04 12:39)
     ☐ Merge all update functions into a dynamic one @low 
     ☐ Is there a better way to handle useEffect? @low 
-    ☐ Extract result into component container @high 
+    ✔ Extract result into component container @high @done(20-08-04 13:04)
 
 TODO (Select):
     ✔ Add comments @low @done(20-08-04 12:32)
