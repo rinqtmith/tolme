@@ -1,20 +1,21 @@
 TODO (Project):
-    ☐ Add tests
+    ☐ Add tests @critical 
+    ☐ Add DIN 6930-1 to standards
+    ☐ Move standards to backend @low 
+    ☐ Add simple ui to add new standards? @low 
 
 TODO (App):
     ✔ Convert to functional component with hooks @done(20-08-04 11:29)
-    ☐ Add comments @low 
+    ✔ Add comments @low @done(20-08-04 12:39)
     ☐ Merge all update functions into a dynamic one @low 
     ☐ Is there a better way to handle useEffect? @low 
     ☐ Extract result into component container @high 
-    
 
 TODO (Select):
-    ☐ Add comments
+    ✔ Add comments @low @done(20-08-04 12:32)
 
 TODO (Standards):
-    ☐ Add comments
-    ☐ Add a new standard
+    ✔ Add comments @done(20-08-04 12:29)
     ☐ Separate calculations into a new file @low
     ☐ Refine calculation @high 
-    ☐ handleResult might need validation @critical 
+    ☐ Calculation need validation @critical 

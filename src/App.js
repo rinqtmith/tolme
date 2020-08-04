@@ -39,12 +39,15 @@ const App = () => {
   const [result, setResult] = useState('');
 
   useEffect(() => {
+    // Show tolerance type if tolerance standard is chosen
     if (tolStandardState.value && !tolTypeState.show) {
       setTolTypeState({
         ...tolTypeState,
         show: true,
       });
     }
+    // Hide tolerance type if tolerance standard is not chosen
+    // Reset value and result
     if (!tolStandardState.value && tolTypeState.show) {
       setTolTypeState({
         ...tolTypeState,
@@ -55,12 +58,15 @@ const App = () => {
       setResult('');
     }
 
+    // Show tolerance class if tolerance type is chosen
     if (tolTypeState.value && !tolClassState.show) {
       setTolClassState({
         ...tolClassState,
         show: true,
       });
     }
+    // Hide tolerance class if tolerance type is not chosen
+    // Reset value and result
     if (!tolTypeState.value && tolClassState.show) {
       setTolClassState({
         ...tolClassState,
@@ -72,6 +78,7 @@ const App = () => {
     }
   }, [tolStandardState, tolTypeState, tolClassState, checkValue]);
 
+  // Update tolerance standard state
   const updateTolStandard = (event, data) => {
     const { value } = data;
 
@@ -83,6 +90,7 @@ const App = () => {
     setResult('');
   };
 
+  // Update tolerance type state
   const updateTolType = (event, data) => {
     const { value } = data;
 
@@ -94,6 +102,7 @@ const App = () => {
     setResult('');
   };
 
+  // Update tolerance class state
   const updateTolClass = (event, data) => {
     const { value } = data;
 
@@ -105,6 +114,7 @@ const App = () => {
     setResult('');
   };
 
+  // Handle value change of input
   const handleValueChange = (event) => {
     const { value } = event.target;
 
@@ -112,6 +122,7 @@ const App = () => {
     setResult('');
   };
 
+  // Calculate result
   const handleResult = () => {
     const result = calcTol(
       checkValue,

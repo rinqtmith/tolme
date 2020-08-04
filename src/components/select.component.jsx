@@ -1,6 +1,9 @@
-import React from "react";
-import { Dropdown } from "semantic-ui-react";
+import React from 'react';
+import { Dropdown } from 'semantic-ui-react';
 
+// Simple dropdown component, props: name for name, label for placeholder,
+// standard for options, handleChanges for onChange, show for disable,
+// value for value.
 const SelectMe = ({ name, label, standard, handleChanges, show, value }) => (
   <Dropdown
     fluid
@@ -10,7 +13,7 @@ const SelectMe = ({ name, label, standard, handleChanges, show, value }) => (
     selectOnBlur={false}
     name={name}
     placeholder={`Select a ${label}... `}
-    style={{ marginBottom: "1em" }}
+    style={{ marginBottom: '1em' }}
     options={standard}
     onChange={(event, data) => handleChanges(event, data)}
     disabled={!show}
