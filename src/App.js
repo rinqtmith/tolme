@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Container,
   Segment,
@@ -13,209 +13,184 @@ import { tolStandard, tolType, tolClass, calcTol } from './utils/standards';
 
 import SelectMe from './components/select.component';
 
-class App extends React.Component {
-  constructor() {
-    super();
+const App = () => {
+  const [tolStandardState, setTolStandardState] = useState({
+    name: 'tolStandard',
+    value: '',
+    options: tolStandard,
+    label: 'tolerance standard',
+    show: true,
+  });
+  const [tolTypeState, setTolTypeState] = useState({
+    name: 'tolType',
+    value: '',
+    options: tolType,
+    label: 'tolerance type',
+    show: false,
+  });
+  const [tolClassState, setTolClassState] = useState({
+    name: 'tolClass',
+    value: '',
+    options: tolClass,
+    label: 'tolerance class',
+    show: false,
+  });
+  const [checkValue, setCheckValue] = useState(null);
+  const [result, setResult] = useState('');
 
-    this.state = {
-      tolStandard: {
-        name: 'tolStandard',
-        value: '',
-        options: tolStandard,
-        label: 'tolerance standard',
+  useEffect(() => {
+    if (tolStandardState.value && !tolTypeState.show) {
+      setTolTypeState({
+        ...tolTypeState,
         show: true,
-      },
-      tolType: {
-        name: 'tolType',
+      });
+    }
+    if (!tolStandardState.value && tolTypeState.show) {
+      setTolTypeState({
+        ...tolTypeState,
         value: '',
-        options: tolType,
-        label: 'tolerance type',
         show: false,
-      },
-      tolClass: {
-        name: 'tolClass',
+      });
+      setCheckValue(null);
+      setResult('');
+    }
+
+    if (tolTypeState.value && !tolClassState.show) {
+      setTolClassState({
+        ...tolClassState,
+        show: true,
+      });
+    }
+    if (!tolTypeState.value && tolClassState.show) {
+      setTolClassState({
+        ...tolClassState,
         value: '',
-        options: tolClass,
-        label: 'tolerance class',
         show: false,
-      },
-      checkValue: null,
-      result: '',
-    };
-  }
-
-  componentDidUpdate() {
-    const { tolStandard, tolType, tolClass, result } = this.state;
-
-    if (tolStandard.value === '' && tolType.show) {
-      this.setState((state) => ({
-        ...state,
-        tolType: {
-          ...tolType,
-          value: '',
-          show: false,
-        },
-        result: '',
-        checkValue: null,
-      }));
+      });
+      setCheckValue(null);
+      setResult('');
     }
+  }, [tolStandardState, tolTypeState, tolClassState, checkValue]);
 
-    if (tolStandard.value !== '' && !tolType.show) {
-      this.setState((state) => ({
-        ...state,
-        tolType: {
-          ...tolType,
-          show: true,
-        },
-        result: '',
-        checkValue: null,
-      }));
-    }
+  const updateTolStandard = (event, data) => {
+    const { value } = data;
 
-    if (tolType.value === '' && tolClass.show) {
-      this.setState((state) => ({
-        ...state,
-        tolClass: {
-          ...tolClass,
-          value: '',
-          show: false,
-        },
-        result: '',
-        checkValue: null,
-      }));
-    }
-
-    if (tolType.value !== '' && !tolClass.show) {
-      this.setState((state) => ({
-        ...state,
-        tolClass: {
-          ...tolClass,
-          show: true,
-        },
-        result: '',
-        checkValue: null,
-      }));
-    }
-
-    if (tolClass.value === '' && result) {
-      this.setState((state) => ({
-        ...state,
-        result: '',
-        checkValue: null,
-      }));
-    }
-  }
-
-  handleChanges = (event, data) => {
-    const { name, value } = data;
-    this.setState((state) => ({
-      ...state,
-      [name]: {
-        ...state[name],
-        value: value,
-      },
-      result: '',
-      checkValue: null,
-    }));
-  };
-
-  handleValueChange = (event) => {
-    const { name, value } = event.target;
-
-    this.setState({
-      ...this.state,
-      [name]: value,
-      result: '',
+    setTolStandardState({
+      ...tolStandardState,
+      value,
     });
+    setCheckValue(null);
+    setResult('');
   };
 
-  handleResult = () => {
-    const { checkValue, tolStandard, tolType, tolClass } = this.state;
+  const updateTolType = (event, data) => {
+    const { value } = data;
+
+    setTolTypeState({
+      ...tolTypeState,
+      value,
+    });
+    setCheckValue(null);
+    setResult('');
+  };
+
+  const updateTolClass = (event, data) => {
+    const { value } = data;
+
+    setTolClassState({
+      ...tolClassState,
+      value,
+    });
+    setCheckValue(null);
+    setResult('');
+  };
+
+  const handleValueChange = (event) => {
+    const { value } = event.target;
+
+    setCheckValue(value);
+    setResult('');
+  };
+
+  const handleResult = () => {
     const result = calcTol(
       checkValue,
-      tolStandard.value,
-      tolType.value,
-      tolClass.value,
+      tolStandardState.value,
+      tolTypeState.value,
+      tolClassState.value,
     );
-    this.setState({
-      ...this.state,
-      result: result,
-    });
+    setResult(result);
   };
 
-  render() {
-    const { tolStandard, tolType, tolClass, checkValue, result } = this.state;
-
-    return (
-      <Container text fluid>
-        <Segment
-          raised
-          padded="very"
-          textAlign="center"
-          style={{ margin: '2em' }}
-        >
-          <Header as="h1" icon>
-            <Icon name="sitemap" />
-            Tolerance Standards
-            <Header.Subheader>
-              Please select a tolerance standard to start.
-            </Header.Subheader>
-          </Header>
-          <Container fluid>
-            <SelectMe
-              name={tolStandard.name}
-              label={tolStandard.label}
-              standard={tolStandard.options}
-              handleChanges={this.handleChanges}
-              show={tolStandard.show}
-              value={tolStandard.value}
-            />
-            <SelectMe
-              name={tolType.name}
-              label={tolType.label}
-              standard={tolType.options}
-              handleChanges={this.handleChanges}
-              show={tolType.show}
-              value={tolType.value}
-            />
-            <SelectMe
-              name={tolClass.name}
-              label={tolClass.label}
-              standard={tolClass.options}
-              handleChanges={this.handleChanges}
-              show={tolClass.show}
-              value={tolClass.value}
-            />
-            <Input
-              fluid
-              type="number"
-              name="checkValue"
-              disabled={tolClass.value === '' || !tolClass.show}
-              style={{ marginBottom: '1em' }}
-              value={checkValue || ''}
-              onChange={this.handleValueChange}
-            />
-          </Container>
-          {result && result !== 'Value must be between 0,5 and 4000' ? (
-            tolType.value !== 'angular' ? (
-              <Message>{`${checkValue}±${result}`}</Message>
-            ) : (
-              <Message>{`±${result}`}</Message>
-            )
-          ) : result ? (
-            <Message>{result}</Message>
-          ) : null}
-          <Button
+  return (
+    <Container text fluid>
+      <Segment
+        raised
+        padded="very"
+        textAlign="center"
+        style={{ margin: '2em' }}
+      >
+        <Header as="h1" icon>
+          <Icon name="sitemap" />
+          Tolerance Standards
+          <Header.Subheader>
+            Please select a tolerance standard to start.
+          </Header.Subheader>
+        </Header>
+        <Container fluid>
+          <SelectMe
+            name={tolStandardState.name}
+            label={tolStandardState.label}
+            standard={tolStandardState.options}
+            handleChanges={updateTolStandard}
+            show={tolStandardState.show}
+            value={tolStandardState.value}
+          />
+          <SelectMe
+            name={tolTypeState.name}
+            label={tolTypeState.label}
+            standard={tolTypeState.options}
+            handleChanges={updateTolType}
+            show={tolTypeState.show}
+            value={tolTypeState.value}
+          />
+          <SelectMe
+            name={tolClassState.name}
+            label={tolClassState.label}
+            standard={tolClassState.options}
+            handleChanges={updateTolClass}
+            show={tolClassState.show}
+            value={tolClassState.value}
+          />
+          <Input
+            fluid
+            type="number"
+            name="checkValue"
+            disabled={tolClassState.value === '' || !tolClassState.show}
             style={{ marginBottom: '1em' }}
-            disabled={tolClass.value === '' || !tolClass.show}
-            onClick={this.handleResult}
-          >
-            Calculate
-          </Button>
-        </Segment>
-      </Container>
-    );
-  }
-}
+            value={checkValue || ''}
+            onChange={handleValueChange}
+          />
+        </Container>
+        {result && result !== 'Value must be between 0,5 and 4000' ? (
+          tolType.value !== 'angular' ? (
+            <Message>{`${checkValue}±${result}`}</Message>
+          ) : (
+            <Message>{`±${result}`}</Message>
+          )
+        ) : result ? (
+          <Message>{result}</Message>
+        ) : null}
+        <Button
+          style={{ marginBottom: '1em' }}
+          disabled={tolClassState.value === '' || !tolClassState.show}
+          onClick={handleResult}
+        >
+          Calculate
+        </Button>
+      </Segment>
+    </Container>
+  );
+};
 
 export default App;
