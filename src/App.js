@@ -151,11 +151,13 @@ const App = () => {
 
   // Calculate result
   const handleResult = () => {
+    const th = thickness ? thickness : 0;
     const result = calcTol(
       checkValue,
       tolStandardState.value,
       tolTypeState.value,
       tolClassState.value,
+      th,
     );
     setResult(result);
   };

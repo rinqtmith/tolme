@@ -36,12 +36,12 @@ export const tolType = {
       key: 1,
       text:
         'Limit dimensions for length dimensions on flat stamped parts except rounding radius',
-      value: 'flat-length',
+      value: 'flatLength',
     },
     {
       key: 2,
       text: 'Limit dimensions for rounding radius',
-      value: 'flat-radius',
+      value: 'flatRadius',
     },
     {
       key: 3,
@@ -53,13 +53,13 @@ export const tolType = {
       key: 4,
       text:
         'Limit dimensions for length dimensions on stamped parts produced by forming except rounding radius',
-      value: 'formed-length',
+      value: 'formedLength',
     },
     {
       key: 5,
       text:
         'Limit dimensions for rounding radius (cut, bent and deep-drawn) on stamped parts produced by forming',
-      value: 'formed-radius',
+      value: 'formedRadius',
     },
   ],
 };
@@ -128,12 +128,16 @@ const tolValues = {
 
 // Calculates the tolerance of given value
 export const calcTol = (value, s, t, c, th = 0) => {
-  const result = tolValues[s][t].valueList.findIndex(
-    (el) => value > el[0] && value <= el[1],
-  );
-  if (result === -1) {
-    return 'Value must be between 0,5 and 4000';
+  if (th === 0) {
+    const result = tolValues[s][t].valueList.findIndex(
+      (el) => value > el[0] && value <= el[1],
+    );
+    if (result === -1) {
+      return 'Value must be between 0,5 and 4000';
+    } else {
+      return tolValues[s][t][c][result];
+    }
   } else {
-    return tolValues[s][t][c][result];
+    console.log(value, s, t, c, th);
   }
 };
