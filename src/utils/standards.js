@@ -5,34 +5,43 @@ export const tolStandard = [
     text: 'DIN ISO 2768-1',
     value: '2768-1',
   },
+  {
+    key: 2,
+    text: 'DIN 6930-1',
+    value: '6930-1',
+  },
 ];
 
 // Tolerance Types (may need to change depending on standard)
-export const tolType = [
-  {
-    key: 1,
-    text: 'Limits for linear measures',
-    value: 'linear',
-  },
-  {
-    key: 2,
-    text: 'Limit measures for radius of curvature and chamfer height',
-    value: 'radius',
-  },
-  {
-    key: 3,
-    text: 'Limit dimensions for angular dimensions (short edge)',
-    value: 'angular',
-  },
-];
+export const tolType = {
+  '2768-1': [
+    {
+      key: 1,
+      text: 'Limits for linear measures',
+      value: 'linear',
+    },
+    {
+      key: 2,
+      text: 'Limit measures for radius of curvature and chamfer height',
+      value: 'radius',
+    },
+    {
+      key: 3,
+      text: 'Limit dimensions for angular dimensions (short edge)',
+      value: 'angular',
+    },
+  ],
+};
 
 // Tolerance Classes
-export const tolClass = [
-  { key: 1, text: 'Fine (f)', value: 'f' },
-  { key: 2, text: 'Medium (m)', value: 'm' },
-  { key: 3, text: 'Coarse (c)', value: 'c' },
-  { key: 4, text: 'Very Coarse (v)', value: 'v' },
-];
+export const tolClass = {
+  '2768-1': [
+    { key: 1, text: 'Fine (f)', value: 'f' },
+    { key: 2, text: 'Medium (m)', value: 'm' },
+    { key: 3, text: 'Coarse (c)', value: 'c' },
+    { key: 4, text: 'Very Coarse (v)', value: 'v' },
+  ],
+};
 
 // Tolerance Values
 const tolValues = {

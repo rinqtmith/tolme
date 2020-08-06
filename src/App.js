@@ -24,14 +24,14 @@ const App = () => {
   const [tolTypeState, setTolTypeState] = useState({
     name: 'tolType',
     value: '',
-    options: tolType,
+    options: tolType[tolStandardState.value] || [],
     label: 'tolerance type',
     show: false,
   });
   const [tolClassState, setTolClassState] = useState({
     name: 'tolClass',
     value: '',
-    options: tolClass,
+    options: tolClass[tolStandardState.value] || [],
     label: 'tolerance class',
     show: false,
   });
@@ -43,6 +43,7 @@ const App = () => {
     if (tolStandardState.value && !tolTypeState.show) {
       setTolTypeState({
         ...tolTypeState,
+        options: tolType[tolStandardState.value],
         show: true,
       });
     }
@@ -52,6 +53,7 @@ const App = () => {
       setTolTypeState({
         ...tolTypeState,
         value: '',
+        options: tolType[tolStandardState.value] || [],
         show: false,
       });
       setCheckValue(null);
@@ -62,6 +64,8 @@ const App = () => {
     if (tolTypeState.value && !tolClassState.show) {
       setTolClassState({
         ...tolClassState,
+        value: '',
+        options: tolClass[tolStandardState.value] || [],
         show: true,
       });
     }
@@ -82,10 +86,17 @@ const App = () => {
   const updateTolStandard = (event, data) => {
     const { value } = data;
 
+    setTolTypeState({
+      ...tolTypeState,
+      value: '',
+      show: false,
+    });
+
     setTolStandardState({
       ...tolStandardState,
       value,
     });
+
     setCheckValue(null);
     setResult('');
   };
@@ -93,6 +104,12 @@ const App = () => {
   // Update tolerance type state
   const updateTolType = (event, data) => {
     const { value } = data;
+
+    setTolClassState({
+      ...tolClassState,
+      value: '',
+      show: false,
+    });
 
     setTolTypeState({
       ...tolTypeState,
