@@ -36,6 +36,7 @@ const App = () => {
     show: false,
   });
   const [checkValue, setCheckValue] = useState(null);
+  const [thickness, setThickness] = useState(null);
   const [result, setResult] = useState('');
 
   useEffect(() => {
@@ -139,6 +140,15 @@ const App = () => {
     setResult('');
   };
 
+  // Handle value change of thickness
+  const handleThickness = (event) => {
+    const { value } = event.target;
+
+    setThickness(value);
+    setCheckValue(null);
+    setResult('');
+  };
+
   // Calculate result
   const handleResult = () => {
     const result = calcTol(
@@ -190,11 +200,27 @@ const App = () => {
             show={tolClassState.show}
             value={tolClassState.value}
           />
+          {tolStandardState.value === '6930-1' ? (
+            <Input
+              fluid
+              type="number"
+              name="thickness"
+              placeholder="Please enter thickness of the material"
+              disabled={tolClassState.value === '' || !tolClassState.show}
+              style={{ marginBottom: '1em' }}
+              value={thickness || ''}
+              onChange={handleThickness}
+            />
+          ) : null}
           <Input
             fluid
             type="number"
             name="checkValue"
-            disabled={tolClassState.value === '' || !tolClassState.show}
+            disabled={
+              tolStandardState.value === '6930-1'
+                ? !thickness
+                : tolClassState.value === '' || !tolClassState.show
+            }
             style={{ marginBottom: '1em' }}
             value={checkValue || ''}
             onChange={handleValueChange}
@@ -209,7 +235,7 @@ const App = () => {
         ) : null}
         <Button
           style={{ marginBottom: '1em' }}
-          disabled={tolClassState.value === '' || !tolClassState.show}
+          disabled={!checkValue}
           onClick={handleResult}
         >
           Calculate

@@ -31,6 +31,37 @@ export const tolType = {
       value: 'angular',
     },
   ],
+  '6930-1': [
+    {
+      key: 1,
+      text:
+        'Limit dimensions for length dimensions on flat stamped parts except rounding radius',
+      value: 'flat-length',
+    },
+    {
+      key: 2,
+      text: 'Limit dimensions for rounding radius',
+      value: 'flat-radius',
+    },
+    {
+      key: 3,
+      text:
+        'Limit dimensions in angular units for nominal dimension ranges of the shorter leg',
+      value: 'angular',
+    },
+    {
+      key: 4,
+      text:
+        'Limit dimensions for length dimensions on stamped parts produced by forming except rounding radius',
+      value: 'formed-length',
+    },
+    {
+      key: 5,
+      text:
+        'Limit dimensions for rounding radius (cut, bent and deep-drawn) on stamped parts produced by forming',
+      value: 'formed-radius',
+    },
+  ],
 };
 
 // Tolerance Classes
@@ -40,6 +71,12 @@ export const tolClass = {
     { key: 2, text: 'Medium (m)', value: 'm' },
     { key: 3, text: 'Coarse (c)', value: 'c' },
     { key: 4, text: 'Very Coarse (v)', value: 'v' },
+  ],
+  '6930-1': [
+    { key: 1, text: 'Fine (f)', value: 'f' },
+    { key: 2, text: 'Medium (m)', value: 'm' },
+    { key: 3, text: 'Coarse (g)', value: 'g' },
+    { key: 4, text: 'Very Coarse (sg)', value: 'sg' },
   ],
 };
 
@@ -90,7 +127,7 @@ const tolValues = {
 };
 
 // Calculates the tolerance of given value
-export const calcTol = (value, s, t, c) => {
+export const calcTol = (value, s, t, c, th = 0) => {
   const result = tolValues[s][t].valueList.findIndex(
     (el) => value > el[0] && value <= el[1],
   );
