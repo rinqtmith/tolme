@@ -127,7 +127,7 @@ const tolValues = {
 };
 
 // Calculates the tolerance of given value
-export const calcTol = (value, s, t, c, th = 0) => {
+export const calcTol = (value, s, t, c, th) => {
   if (th === 0) {
     const result = tolValues[s][t].valueList.findIndex(
       (el) => value > el[0] && value <= el[1],
