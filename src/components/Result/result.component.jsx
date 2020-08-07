@@ -6,12 +6,14 @@ const ResultComponent = ({ result, checkValue, value }) => (
   <React.Fragment>
     {!result.includes('Value') ? (
       value !== 'angular' ? (
-        <Message>{`${checkValue}±${result}`}</Message>
+        <Message
+          style={{ marginBottom: '1em' }}
+        >{`${checkValue}±${result}`}</Message>
       ) : (
-        <Message>{`±${result}`}</Message>
+        <Message style={{ marginBottom: '1em' }}>{`±${result}`}</Message>
       )
     ) : (
-      <Message>{result}</Message>
+      <Message style={{ marginBottom: '1em' }}>{result}</Message>
     )}
   </React.Fragment>
 );

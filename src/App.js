@@ -170,12 +170,7 @@ const App = () => {
 
   return (
     <Container text fluid>
-      <Segment
-        raised
-        padded="very"
-        textAlign="center"
-        style={{ margin: '2em' }}
-      >
+      <Segment raised textAlign="center" style={{ margin: '2em' }}>
         <Header as="h1" icon>
           <Icon name="sitemap" />
           Tolerance Standards
@@ -233,14 +228,14 @@ const App = () => {
             value={checkValue || ''}
             onChange={handleValueChange}
           />
+          {result ? (
+            <ResultComponent
+              result={result}
+              checkValue={checkValue}
+              value={tolTypeState.value}
+            />
+          ) : null}
         </Container>
-        {result ? (
-          <ResultComponent
-            result={result}
-            checkValue={checkValue}
-            value={tolTypeState.value}
-          />
-        ) : null}
         <Button
           style={{ marginBottom: '1em' }}
           disabled={!checkValue}
