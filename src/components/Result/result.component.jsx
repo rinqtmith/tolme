@@ -4,7 +4,7 @@ import { Message } from 'semantic-ui-react';
 
 const ResultComponent = ({ result, checkValue, value }) => (
   <React.Fragment>
-    {result !== 'Value must be between 0,5 and 4000' ? (
+    {!result.includes('Value') ? (
       value !== 'angular' ? (
         <Message>{`${checkValue}±${result}`}</Message>
       ) : (

@@ -8,7 +8,8 @@ import {
   Button,
 } from 'semantic-ui-react';
 
-import { tolStandard, tolType, tolClass, calcTol } from './utils/standards';
+import { tolStandard, tolType, tolClass } from './utils/standards';
+import { calcTol } from './utils/calculation';
 
 import SelectMe from './components/Select/select.component';
 import ResultComponent from './components/Result/result.component';
@@ -58,6 +59,7 @@ const App = () => {
         show: false,
       });
       setCheckValue(null);
+      setThickness(null);
       setResult('');
     }
 
@@ -79,6 +81,7 @@ const App = () => {
         show: false,
       });
       setCheckValue(null);
+      setThickness(null);
       setResult('');
     }
   }, [tolStandardState, tolTypeState, tolClassState, checkValue]);
@@ -99,6 +102,7 @@ const App = () => {
     });
 
     setCheckValue(null);
+    setThickness(null);
     setResult('');
   };
 
@@ -117,6 +121,7 @@ const App = () => {
       value,
     });
     setCheckValue(null);
+    setThickness(null);
     setResult('');
   };
 
@@ -129,6 +134,7 @@ const App = () => {
       value,
     });
     setCheckValue(null);
+    setThickness(null);
     setResult('');
   };
 
