@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.js": "/tolme/static/js/main.726bd58a.chunk.js",
-    "main.js.map": "/tolme/static/js/main.726bd58a.chunk.js.map",
+    "main.js": "/tolme/static/js/main.d6d9d10b.chunk.js",
+    "main.js.map": "/tolme/static/js/main.d6d9d10b.chunk.js.map",
     "runtime-main.js": "/tolme/static/js/runtime-main.1c308f63.js",
     "runtime-main.js.map": "/tolme/static/js/runtime-main.1c308f63.js.map",
     "static/css/2.40b66b15.chunk.css": "/tolme/static/css/2.40b66b15.chunk.css",
-    "static/js/2.3ed10f26.chunk.js": "/tolme/static/js/2.3ed10f26.chunk.js",
-    "static/js/2.3ed10f26.chunk.js.map": "/tolme/static/js/2.3ed10f26.chunk.js.map",
+    "static/js/2.d426818a.chunk.js": "/tolme/static/js/2.d426818a.chunk.js",
+    "static/js/2.d426818a.chunk.js.map": "/tolme/static/js/2.d426818a.chunk.js.map",
     "index.html": "/tolme/index.html",
-    "precache-manifest.d6e79bb755d0a174cfdb005b51a7bc5f.js": "/tolme/precache-manifest.d6e79bb755d0a174cfdb005b51a7bc5f.js",
+    "precache-manifest.a7847f691aa7bc07d34fb58b32bfadc1.js": "/tolme/precache-manifest.a7847f691aa7bc07d34fb58b32bfadc1.js",
     "service-worker.js": "/tolme/service-worker.js",
     "static/css/2.40b66b15.chunk.css.map": "/tolme/static/css/2.40b66b15.chunk.css.map",
-    "static/js/2.3ed10f26.chunk.js.LICENSE.txt": "/tolme/static/js/2.3ed10f26.chunk.js.LICENSE.txt",
+    "static/js/2.d426818a.chunk.js.LICENSE.txt": "/tolme/static/js/2.d426818a.chunk.js.LICENSE.txt",
     "static/media/semantic.min.css": "/tolme/static/media/outline-icons.ef60a4f6.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.1c308f63.js",
     "static/css/2.40b66b15.chunk.css",
-    "static/js/2.3ed10f26.chunk.js",
-    "static/js/main.726bd58a.chunk.js"
+    "static/js/2.d426818a.chunk.js",
+    "static/js/main.d6d9d10b.chunk.js"
   ]
 }
