@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/tolme/precache-manifest.a7847f691aa7bc07d34fb58b32bfadc1.js"
+  "/tolme/precache-manifest.abf068ee9b91d1782920a81092f557a7.js"
 );
 
 self.addEventListener('message', (event) => {
