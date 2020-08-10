@@ -1,5 +1,5 @@
 TODO (Project):
-    ☐ Add tests @critical 
+    ✔ Add tests @critical @done(20-08-10 14:43)
     ✔ Add DIN 6930-1 to standards @started(20-08-07 11:33) @done(20-08-07 12:25) @lasted(52m57s)
     ☐ Move standards to backend @low 
     ☐ Add simple ui to add new standards? @low 
