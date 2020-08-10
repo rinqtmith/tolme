@@ -1,7 +1,7 @@
 import { tolValues } from './standards';
 
 // Finding index for values
-const valIndex = (value, arr) => {
+export const valIndex = (value, arr) => {
   const result = arr.findIndex((el) =>
     el.length === 2 ? value > el[0] && value <= el[1] : value > el[0],
   );
@@ -11,7 +11,11 @@ const valIndex = (value, arr) => {
 // Calculates the tolerance of given value
 export const calcTol = (value, s, t, c, th) => {
   const result = valIndex(value, tolValues[s][t]['valueList']);
+  th = parseInt(th);
   if (th === 0) {
+    if (s === '6930-1') {
+      return 'Thickness should be greater than 0';
+    }
     if (result === -1) {
       return 'Value must be between 0,5 and 4000';
     } else {

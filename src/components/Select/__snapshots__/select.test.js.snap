@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select Component should render component 1`] = `
+<Dropdown
+  additionLabel="Add "
+  additionPosition="top"
+  clearable={true}
+  closeOnBlur={true}
+  closeOnEscape={true}
+  deburr={false}
+  disabled={false}
+  fluid={true}
+  icon="dropdown"
+  minCharacters={1}
+  name="class"
+  noResultsMessage="No results found."
+  onChange={[Function]}
+  openOnFocus={true}
+  options={
+    Array [
+      Object {
+        "key": 1,
+        "text": "some text",
+        "value": "some value",
+      },
+      Object {
+        "key": 2,
+        "text": "some text",
+        "value": "some value",
+      },
+    ]
+  }
+  placeholder="Select a class label... "
+  renderLabel={[Function]}
+  search={true}
+  searchInput="text"
+  selectOnBlur={false}
+  selectOnNavigation={true}
+  selection={true}
+  style={
+    Object {
+      "marginBottom": "1em",
+    }
+  }
+  value="some value"
+  wrapSelection={true}
+/>
+`;
