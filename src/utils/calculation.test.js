@@ -46,11 +46,17 @@ describe('calcTol function', () => {
     th = 0;
   });
 
-  it('should return "Value must be between 0,5 and 4000" if value is higher than 4000 and standard is 2768-1', () => {
+  it('should return "Value must be between 0,5 and 4000" if value is higher than 4000 and standard is 2768-1 and type is linear', () => {
     value = 5000;
     expect(calcTol(value, s, t, c, th)).toEqual(
       'Value must be between 0,5 and 4000',
     );
+  });
+
+  it('should return a valid value if values is higher than 4000 and standard is 2768-1 and type is other than linear', () => {
+    value = 5000;
+    t = 'radius';
+    expect(calcTol(value, s, t, c, th)).toEqual('1');
   });
 
   it('should return 0,2 with default variables', () => {
