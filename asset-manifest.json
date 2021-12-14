@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.js": "/tolme/static/js/main.d05fd076.chunk.js",
-    "main.js.map": "/tolme/static/js/main.d05fd076.chunk.js.map",
+    "main.js": "/tolme/static/js/main.25a46667.chunk.js",
+    "main.js.map": "/tolme/static/js/main.25a46667.chunk.js.map",
     "runtime-main.js": "/tolme/static/js/runtime-main.05974eb4.js",
     "runtime-main.js.map": "/tolme/static/js/runtime-main.05974eb4.js.map",
     "static/css/2.fe753ad3.chunk.css": "/tolme/static/css/2.fe753ad3.chunk.css",
-    "static/js/2.0fcd03bc.chunk.js": "/tolme/static/js/2.0fcd03bc.chunk.js",
-    "static/js/2.0fcd03bc.chunk.js.map": "/tolme/static/js/2.0fcd03bc.chunk.js.map",
+    "static/js/2.c35c578e.chunk.js": "/tolme/static/js/2.c35c578e.chunk.js",
+    "static/js/2.c35c578e.chunk.js.map": "/tolme/static/js/2.c35c578e.chunk.js.map",
     "index.html": "/tolme/index.html",
     "static/css/2.fe753ad3.chunk.css.map": "/tolme/static/css/2.fe753ad3.chunk.css.map",
-    "static/js/2.0fcd03bc.chunk.js.LICENSE.txt": "/tolme/static/js/2.0fcd03bc.chunk.js.LICENSE.txt",
+    "static/js/2.c35c578e.chunk.js.LICENSE.txt": "/tolme/static/js/2.c35c578e.chunk.js.LICENSE.txt",
     "static/media/semantic.min.css": "/tolme/static/media/outline-icons.ddae9b1b.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.05974eb4.js",
     "static/css/2.fe753ad3.chunk.css",
-    "static/js/2.0fcd03bc.chunk.js",
-    "static/js/main.d05fd076.chunk.js"
+    "static/js/2.c35c578e.chunk.js",
+    "static/js/main.25a46667.chunk.js"
   ]
 }
